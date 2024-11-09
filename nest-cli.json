@@ -1,8 +1,32 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src",
+  "sourceRoot": "apps/freshTour-api/src",
   "compilerOptions": {
-    "deleteOutDir": true
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/freshTour-api/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/freshTour-api",
+  "projects": {
+    "fresh-tour": {
+      "type": "application",
+      "root": "apps/freshTour-api",
+      "entryFile": "main",
+      "sourceRoot": "apps/freshTour-api/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/freshTour-api/tsconfig.app.json"
+      }
+    },
+    "freshTour-batch": {
+      "type": "application",
+      "root": "apps/freshTour-batch",
+      "entryFile": "main",
+      "sourceRoot": "apps/freshTour-batch/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/freshTour-batch/tsconfig.app.json"
+      }
+    }
   }
 }
